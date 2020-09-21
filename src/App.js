@@ -19,7 +19,7 @@ function App() {
       <Router>
         <nav className="navbar box-shadow">
           <Link
-            to="/"
+            to="/ygopro"
             style={{ textDecoration: "none" }}
             className="navbar-component"
           >
@@ -27,7 +27,7 @@ function App() {
           </Link>
 
           <Link
-            to="/customercard"
+            to="/ygopro/customercard"
             style={{ textDecoration: "none" }}
             className="navbar-component"
           >
@@ -37,14 +37,14 @@ function App() {
 
         <div>
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/ygopro/">
               <Searchbar />
             </Route>
 
-            <Route exact path="/customercard">
+            <Route exact path="/ygopro/customercard">
               <Customcards />
             </Route>
-            <Route exact path="/card/:id">
+            <Route exact path="/ygopro/card/:id">
               <CardContainer />
             </Route>
           </Switch>

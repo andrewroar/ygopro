@@ -62,7 +62,7 @@ function Customcards() {
     })
       .then(() => {
         alert("Submitted!");
-        history.replace("/");
+        history.replace("/ygopro");
       })
       .catch((err) => {
         alert(err);
@@ -88,7 +88,7 @@ function Customcards() {
       .then(() => {
         alert("Your vote has been registered");
 
-        history.replace("/");
+        history.replace("/ygopro");
       })
       .catch((err) => {
         alert(err);
@@ -118,7 +118,7 @@ function Customcards() {
       .then((response) => {
         if (response.ok) {
           alert("You custom card has been deleted");
-          history.replace("/");
+          history.replace("/ygopro");
         } else {
           alert("Incorrect Password");
         }

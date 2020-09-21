@@ -13,7 +13,7 @@ function Backbutton() {
   let history = useHistory();
 
   function handleClick() {
-    history.push("/");
+    history.push("/ygopro");
   }
 
   //////////////////////////////////////////
