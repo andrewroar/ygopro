@@ -6,8 +6,6 @@ function Customcards() {
   const initialState = {
     loading: true,
     customCardData: [],
-    customCardType: "",
-    search: "",
     url: "https://mighty-everglades-65889.herokuapp.com/api/customcards/",
     error: null,
   };

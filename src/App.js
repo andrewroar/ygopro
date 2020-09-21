@@ -8,6 +8,8 @@ import CardContainer from "./components/cardcontainer";
 import Searchbar from "./components/searchbar";
 
 import Customcards from "./components/customcards";
+import BanlistTCG from "./components/banlist_tcg";
+import AppModal from "./components/appmodal";
 
 function App() {
   return (
@@ -33,6 +35,14 @@ function App() {
           >
             <p>Custom Card</p>
           </Link>
+
+          <Link
+            to="/banlisttcg"
+            style={{ textDecoration: "none" }}
+            className="navbar-component"
+          >
+            <p>Banlist (TCG)</p>
+          </Link>
         </nav>
 
         <div>
@@ -44,6 +54,13 @@ function App() {
             <Route exact path="/customercard">
               <Customcards />
             </Route>
+            <Route exact path="/banlisttcg">
+              <BanlistTCG />
+            </Route>
+            <Route exact path="/modal">
+              <AppModal />
+            </Route>
+
             <Route exact path="/card/:id">
               <CardContainer />
             </Route>

@@ -287,7 +287,7 @@ function Searchbar() {
         <h2 style={{ "text-align": "center" }}>No Card is found</h2>
       ) : null}
 
-      <div className="main-list ">
+      <div className="main-list">
         {state.filteredData.map((item) => {
           return (
             <Home
