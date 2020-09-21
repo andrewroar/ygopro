@@ -35,6 +35,7 @@ const { modalVisible } = appContext
 import React, { useReducer, useEffect } from "react";
 //import "antd/dist/antd.css";
 import { Modal, Button } from "antd";
+import axios from "axios";
 
 function AppModal() {
   const initialState = { visible: false };
@@ -64,6 +65,25 @@ function AppModal() {
     console.log(e);
 
     dispatch({ type: "modalInvisible" });
+  };
+
+  ////////////////////////////////////
+
+  const DeleteCard = (event) => {
+    event.preventDefault();
+    var Promptedpassword = prompt("Enter in the password");
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({ password: Promptedpassword });
+
+    var requestOptions = {
+      method: "DELETE",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
   };
 
   return (

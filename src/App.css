@@ -20,6 +20,7 @@ header {
 .title {
   font-family: "Balsamiq Sans", cursive;
   text-align: center;
+  color: white;
 }
 .flex {
   display: flex;
