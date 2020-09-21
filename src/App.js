@@ -19,19 +19,19 @@ function App() {
       <Router>
         <nav className="navbar box-shadow">
           <Link
-            to="/customercard"
-            style={{ textDecoration: "none" }}
-            className="navbar-component"
-          >
-            <p>Custom Card</p>
-          </Link>
-
-          <Link
             to="/"
             style={{ textDecoration: "none" }}
             className="navbar-component"
           >
             <p>Main Page</p>
+          </Link>
+
+          <Link
+            to="/customercard"
+            style={{ textDecoration: "none" }}
+            className="navbar-component"
+          >
+            <p>Custom Card</p>
           </Link>
         </nav>
 

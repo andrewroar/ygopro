@@ -10,6 +10,11 @@ header {
   margin-bottom: 10px;
   color: aliceblue;
   height: 250px;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .title {
