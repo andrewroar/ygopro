@@ -1,0 +1,246 @@
+body {
+  background-color: azure;
+  font-family: "PT Sans", sans-serif;
+}
+
+header {
+  background-image: url("https://coverfiles.alphacoders.com/585/58586.jpg");
+  border: 10px solid #363944;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  color: aliceblue;
+  height: 250px;
+}
+
+.title {
+  font-family: "Balsamiq Sans", cursive;
+  text-align: center;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-shadow:hover {
+  box-shadow: 4px 4px gray;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.navbar {
+  margin: 10px, 10px, 10px, 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex: 50%;
+
+  flex-basis: 40%;
+  border-radius: 15px;
+  border: 10px solid #363944;
+  padding: 20px;
+  background-color: #33cc33;
+}
+
+.navbar-component {
+  margin: 20px;
+  text-decoration: none;
+  color: black;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.navbar-component:hover,
+.navbar-component:active {
+  -webkit-animation-name: navbar-component;
+  animation-name: navbar-component;
+  -webkit-animation-duration: 0.8s, 1.5s;
+  animation-duration: 0.8s, 1.5s;
+  -webkit-animation-delay: 0s, 0.8s;
+  animation-delay: 0s, 0.8s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}
+
+@keyframes navbar-component {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+@-webkit-keyframes navbar-component {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+.search-form {
+  text-align: center;
+}
+
+.main-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.main-box {
+  display: flex;
+  flex-direction: row;
+
+  flex-basis: 42.5%;
+  border-radius: 15px;
+  border: 10px solid #363944;
+  padding: 20px;
+  background-color: #f5deb3;
+  margin: 1.5%;
+}
+
+/*==Search Bar css==*/
+.search-div {
+  flex: 50%;
+  border-radius: 15px;
+  border: 10px solid #363944;
+  padding: 20px;
+  background-color: pink;
+  margin: 10px;
+}
+
+/*==Main search css==*/
+
+.form-div {
+  flex: 50%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  border-radius: 15px;
+  border: 10px solid #363944;
+  padding: 20px;
+  background-color: pink;
+  margin: 20px;
+}
+.form * {
+  margin-top: 20px;
+}
+.form-description {
+  height: 100px;
+  word-break: break-word;
+}
+
+/*==Card css==*/
+
+.flex-column {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.back-button {
+  margin: 10px 0px 10px 0px;
+}
+
+.card-text {
+  margin-left: 20px;
+  border-radius: 15px;
+  border: 10px solid #363944;
+  padding: 20px;
+  background-color: #f5deb3;
+}
+
+.card-flex-box {
+  display: flex;
+
+  flex-direction: row;
+}
+
+.release-set-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.release-set {
+  flex: 50%;
+}
+
+.custom-card-box {
+  flex-basis: 42.5%;
+  margin-left: 6%;
+  border-radius: 15px;
+  border: 10px solid #363944;
+  padding: 20px;
+  background-color: #f5deb3;
+  margin: 20px;
+}
+
+@media only screen and (max-width: 544px) {
+  .mobile-centre {
+    display: inline-block;
+  }
+  header {
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 1126px) {
+  .main-box {
+    flex: 100%;
+    width: 85%;
+  }
+  .form-div {
+    flex: 85%;
+  }
+  .form {
+    width: auto;
+  }
+  .custom-card-box {
+    flex: 85%;
+  }
+
+  .back-button {
+    text-align: center;
+  }
+  .card-img {
+    width: 75%;
+  }
+
+  .card-flex-box {
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-flow: column;
+    text-align: center;
+  }
+
+  .release-set-list {
+    text-align: center;
+  }
+  .release-set {
+    flex: 100%;
+  }
+}
