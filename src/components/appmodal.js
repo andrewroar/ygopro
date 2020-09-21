@@ -33,6 +33,7 @@ const { modalVisible } = appContext
 />
  */
 import React, { useReducer, useEffect } from "react";
+//import "antd/dist/antd.css";
 import { Modal, Button } from "antd";
 
 function AppModal() {

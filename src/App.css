@@ -270,8 +270,13 @@ header {
     text-align: center;
   }
 
+  .card-text {
+    margin-top: 20px;
+  }
+
   .release-set-list {
     text-align: center;
+    margin-top: 20px;
   }
   .release-set {
     flex: 100%;
