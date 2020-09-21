@@ -16,7 +16,7 @@ function Home(props) {
       </div>
       <div>
         <h2>{props.name}</h2>
-        <Link to={"/ygopro/card/" + props.id}>
+        <Link to={"/card/" + props.id}>
           <button data-id={props.id} data-name={props.name}>
             More information
           </button>

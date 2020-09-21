@@ -27,7 +27,7 @@ function App() {
           </Link>
 
           <Link
-            to="/ygopro/customercard"
+            to="/customercard"
             style={{ textDecoration: "none" }}
             className="navbar-component"
           >
@@ -41,10 +41,10 @@ function App() {
               <Searchbar />
             </Route>
 
-            <Route exact path="/ygopro/customercard">
+            <Route exact path="/customercard">
               <Customcards />
             </Route>
-            <Route exact path="/ygopro/card/:id">
+            <Route exact path="/card/:id">
               <CardContainer />
             </Route>
           </Switch>
