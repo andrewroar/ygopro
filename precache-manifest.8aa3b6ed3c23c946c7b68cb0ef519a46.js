@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a5e02c6910c02b7eccd8b29b0289d547",
+    "revision": "2749a749ccef8ac9bf8e35e1087de2ac",
     "url": "/ygopro/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ygopro/static/css/2.cd846464.chunk.css"
   },
   {
-    "revision": "723ee2108d67dbbc4113",
-    "url": "/ygopro/static/css/main.58cd2b60.chunk.css"
+    "revision": "b4ef8255faf6cb4cbe57",
+    "url": "/ygopro/static/css/main.7806baa1.chunk.css"
   },
   {
     "revision": "aebda351e2c42d4185f7",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ygopro/static/js/2.116beb87.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "723ee2108d67dbbc4113",
-    "url": "/ygopro/static/js/main.7aad486a.chunk.js"
+    "revision": "b4ef8255faf6cb4cbe57",
+    "url": "/ygopro/static/js/main.4b37204c.chunk.js"
   },
   {
     "revision": "fb5594bb8d526c589cfe",
