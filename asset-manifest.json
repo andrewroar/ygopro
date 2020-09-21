@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ygopro/static/css/main.59536ae1.chunk.css",
-    "main.js": "/ygopro/static/js/main.4ec15065.chunk.js",
-    "main.js.map": "/ygopro/static/js/main.4ec15065.chunk.js.map",
+    "main.js": "/ygopro/static/js/main.1ea4750c.chunk.js",
+    "main.js.map": "/ygopro/static/js/main.1ea4750c.chunk.js.map",
     "runtime-main.js": "/ygopro/static/js/runtime-main.766ed7fb.js",
     "runtime-main.js.map": "/ygopro/static/js/runtime-main.766ed7fb.js.map",
     "static/js/2.d994ab83.chunk.js": "/ygopro/static/js/2.d994ab83.chunk.js",
     "static/js/2.d994ab83.chunk.js.map": "/ygopro/static/js/2.d994ab83.chunk.js.map",
     "index.html": "/ygopro/index.html",
-    "precache-manifest.ebc9401798cddd0e27cbf988bc070f2c.js": "/ygopro/precache-manifest.ebc9401798cddd0e27cbf988bc070f2c.js",
+    "precache-manifest.bee18a533033829d65f13598a279496e.js": "/ygopro/precache-manifest.bee18a533033829d65f13598a279496e.js",
     "service-worker.js": "/ygopro/service-worker.js",
     "static/css/main.59536ae1.chunk.css.map": "/ygopro/static/css/main.59536ae1.chunk.css.map",
     "static/js/2.d994ab83.chunk.js.LICENSE.txt": "/ygopro/static/js/2.d994ab83.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.766ed7fb.js",
     "static/js/2.d994ab83.chunk.js",
     "static/css/main.59536ae1.chunk.css",
-    "static/js/main.4ec15065.chunk.js"
+    "static/js/main.1ea4750c.chunk.js"
   ]
 }

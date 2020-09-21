@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6d231959e86749576e82a50840b1ddd9",
+    "revision": "ede6b651d3bd53efdd277c7f11eb74fd",
     "url": "/ygopro/index.html"
   },
   {
-    "revision": "ca06ff1aa3a19799f16c",
+    "revision": "60f3ece4720c2cc8d06b",
     "url": "/ygopro/static/css/main.59536ae1.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ygopro/static/js/2.d994ab83.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ca06ff1aa3a19799f16c",
-    "url": "/ygopro/static/js/main.4ec15065.chunk.js"
+    "revision": "60f3ece4720c2cc8d06b",
+    "url": "/ygopro/static/js/main.1ea4750c.chunk.js"
   },
   {
     "revision": "fb5594bb8d526c589cfe",
