@@ -59,6 +59,8 @@ The search bar and form used pink to refer to the trap card
 
 -Fixed a bug where the site will crash when loading card which has not been released yet. The object will not have "card_sets" if the card has been to be released in the TCG which resulted in the site crashing
 
+-Path was not working properly when deployed
+
 # Future Road Map
 
 -Adding Ban list to the website
