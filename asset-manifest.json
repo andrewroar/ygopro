@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ygopro/static/css/main.0d725fc7.chunk.css",
+    "main.js": "/ygopro/static/js/main.8d9a7559.chunk.js",
+    "main.js.map": "/ygopro/static/js/main.8d9a7559.chunk.js.map",
+    "runtime-main.js": "/ygopro/static/js/runtime-main.766ed7fb.js",
+    "runtime-main.js.map": "/ygopro/static/js/runtime-main.766ed7fb.js.map",
+    "static/js/2.d994ab83.chunk.js": "/ygopro/static/js/2.d994ab83.chunk.js",
+    "static/js/2.d994ab83.chunk.js.map": "/ygopro/static/js/2.d994ab83.chunk.js.map",
+    "index.html": "/ygopro/index.html",
+    "precache-manifest.039e6bbcd8f79d7e3a850da32f033200.js": "/ygopro/precache-manifest.039e6bbcd8f79d7e3a850da32f033200.js",
+    "service-worker.js": "/ygopro/service-worker.js",
+    "static/css/main.0d725fc7.chunk.css.map": "/ygopro/static/css/main.0d725fc7.chunk.css.map",
+    "static/js/2.d994ab83.chunk.js.LICENSE.txt": "/ygopro/static/js/2.d994ab83.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.766ed7fb.js",
+    "static/js/2.d994ab83.chunk.js",
+    "static/css/main.0d725fc7.chunk.css",
+    "static/js/main.8d9a7559.chunk.js"
+  ]
+}
