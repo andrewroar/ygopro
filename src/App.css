@@ -33,11 +33,12 @@ header {
 }
 
 .navbar {
-  margin: 10px, 10px, 10px, 10px;
+  margin: 20px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   flex: 50%;
+  width: 97%;
 
   flex-basis: 40%;
   border-radius: 15px;
@@ -115,23 +116,24 @@ header {
 .main-box {
   display: flex;
   flex-direction: row;
+  margin: 20px 20px 0 20px;
 
-  flex-basis: 42.5%;
+  flex-basis: 47.5%;
   border-radius: 15px;
   border: 10px solid #363944;
   padding: 20px;
   background-color: #f5deb3;
-  margin: 1.5%;
 }
 
 /*==Search Bar css==*/
 .search-div {
   flex: 50%;
+  width: 97%;
   border-radius: 15px;
   border: 10px solid #363944;
   padding: 20px;
   background-color: pink;
-  margin: 10px;
+  margin: 20px;
 }
 
 /*==Main search css==*/
@@ -143,7 +145,7 @@ header {
 .form {
   display: flex;
   flex-direction: column;
-  width: auto;
+  width: 97%;
   border-radius: 15px;
   border: 10px solid #363944;
   padding: 20px;
@@ -196,17 +198,17 @@ header {
 }
 
 .custom-card-box {
-  flex-basis: 42.5%;
   margin-left: 6%;
   border-radius: 15px;
   border: 10px solid #363944;
   padding: 20px;
   background-color: #f5deb3;
-  margin: 20px;
+  flex-basis: 47.5%;
+  margin: 20px 20px 0 20px;
 }
 
 .Banline {
-  width: 90%;
+  width: 97%;
   border-radius: 15px;
   border: 10px solid #363944;
   padding: 20px;
@@ -215,7 +217,7 @@ header {
 }
 
 .Banline-2 {
-  width: 90%;
+  width: 97%;
   border-radius: 15px;
   border: 10px solid #363944;
   padding: 20px;
@@ -225,7 +227,7 @@ header {
 
 .Banline-3 {
   color: white;
-  width: 90%;
+  width: 97%;
   border-radius: 15px;
   border: 10px solid #363944;
   padding: 20px;
@@ -234,6 +236,18 @@ header {
 }
 
 @media only screen and (max-width: 544px) {
+  .navbar {
+    width: 92%;
+  }
+
+  .form {
+    width: auto;
+  }
+
+  .search-div {
+    width: auto;
+  }
+
   .mobile-centre {
     display: inline-block;
   }
@@ -248,11 +262,9 @@ header {
     width: 85%;
   }
   .form-div {
-    flex: 85%;
-  }
-  .form {
     width: auto;
   }
+
   .custom-card-box {
     flex: 85%;
   }
@@ -281,5 +293,14 @@ header {
   }
   .release-set {
     flex: 100%;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .main-box {
+    margin: 20px 10px 0 20px;
+  }
+  .custom-card-box {
+    margin: 20px 10px 0 20px;
   }
 }

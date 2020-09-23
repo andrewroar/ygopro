@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import AppModal from "./appmodal";
 
 function Customcards() {
   const initialState = {
@@ -250,9 +251,7 @@ function Customcards() {
                   Vote
                 </button>
 
-                <button id={item._id} onClick={DeleteCard}>
-                  Delete
-                </button>
+                <AppModal id={item._id} />
               </div>
             );
           })}
