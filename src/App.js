@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import ReactLoading from "react-loading";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 
 import CardContainer from "./components/cardcontainer";
