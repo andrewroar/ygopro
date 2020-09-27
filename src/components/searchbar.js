@@ -13,12 +13,16 @@ function Searchbar() {
       return { ...state, error: action.payload };
     } else if (action.type === "ChangeUrl") {
       if (action.payload === "Monster") {
-        return {
-          ...state,
-          url:
-            "https://db.ygoprodeck.com/api/v7/cardinfo.php?" +
-            state.searchMonsterType,
-        };
+        const monsterurl =
+          "https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=&" +
+          state.searchMonsterType +
+          `&` +
+          state.monsteratkreq +
+          state.monsteratk +
+          state.monsterdefreq +
+          state.monsterdef +
+          state.monsterattribute;
+        return { ...state, url: monsterurl };
       } else if (action.payload === "Spell") {
         return {
           ...state,
@@ -40,9 +44,23 @@ function Searchbar() {
         };
       }
     } else if (action.type === "SearchBarType") {
-      return { ...state, searchType: action.payload };
+      if (action.payload === "Monster") {
+        return {
+          ...state,
+          searchType: action.payload,
+        };
+      } else {
+        return {
+          ...state,
+          searchType: action.payload,
+          url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=&",
+        };
+      }
     } else if (action.type === "SearchBarMonsterType") {
-      return { ...state, searchMonsterType: action.payload };
+      return {
+        ...state,
+        searchMonsterType: action.payload,
+      };
     } else if (action.type === "SearchBarSpellType") {
       return { ...state, searchSpellType: action.payload };
     } else if (action.type === "SearchBarChanges") {
@@ -84,6 +102,18 @@ function Searchbar() {
       } else {
         return { ...state, filteredData: state.cardData };
       }
+    } else if (action.type === "SetMonsterAtk") {
+      return { ...state, monsteratk: action.payload };
+    } else if (action.type === "SetMonsterAtkreq") {
+      return { ...state, monsteratkreq: action.payload };
+    } else if (action.type === "SetMonsterDef") {
+      return { ...state, monsterdef: action.payload };
+    } else if (action.type === "SetMonsterDefreq") {
+      return { ...state, monsterdefreq: action.payload };
+    } else if (action.type === "SetMonsterAttribute") {
+      return { ...state, monsterattribute: action.payload };
+    } else if (action.type === "HardReset") {
+      return state;
     } else {
       return state;
     }
@@ -95,16 +125,23 @@ function Searchbar() {
     cardData: [],
     search: "",
     filteredData: [],
-    searchType: null,
-    searchMonsterType: null,
-    searchSpellType: null,
-    searchTrapType: null,
+    searchType: "",
+    searchMonsterType: "",
+    searchSpellType: "",
+    searchTrapType: "",
     type: "",
-    url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?",
+    url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=&",
+    ///////////////////////////////////////////////////////////
     error: null,
+    monsteratk: "",
+    monsteratkreq: "",
+    monsterdef: "",
+    monsterdefreq: "",
+    monsterattribute: "",
   };
 
   const searchAPI = async () => {
+    console.log(state.url);
     try {
       let { data } = await axios.get(state.url);
 
@@ -135,14 +172,14 @@ function Searchbar() {
             className="SearchInput search-component"
             onKeyDown={async (element) => {
               if (element.keyCode == 13) {
-                state.cardData = true;
                 const target = element.target.value;
-
+                //Call API with the latest URL then filtered the data and create a state call filterdata
                 searchAPI().then(() => {
                   dispatch({
                     type: "SearchBarChanges",
                     payload: target,
                   });
+
                   dispatch({ type: "changeSearchState", payload: true });
                 });
               }
@@ -156,6 +193,10 @@ function Searchbar() {
                 type: "SearchBarType",
                 payload: element.target.value,
               });
+              dispatch({
+                type: "ChangeUrl",
+                payload: element.target.value,
+              });
             }}
           >
             <option value=""></option>
@@ -165,71 +206,172 @@ function Searchbar() {
           </select>
 
           {state.searchType === "Monster" ? (
-            <select
-              id="searchbar-monster-type"
-              onChange={async (element) => {
-                dispatch({
-                  type: "SearchBarMonsterType",
-                  payload: element.target.value,
-                });
-                dispatch({
-                  type: "ChangeUrl",
-                  payload: "Monster",
-                });
-              }}
-            >
-              <option value=""></option>
-              <option value="type=Normal Monster">Normal Monster</option>
-              <option value="type=Normal Tuner Monster">
-                Normal Tuner Monster
-              </option>
-              <option value="type=Effect Monster">Effect Monster</option>
-              <option value="type=Tuner Monster">Tuner</option>
+            <div>
+              <select
+                id="searchbar-monster-type"
+                onChange={async (element) => {
+                  dispatch({
+                    type: "SearchBarMonsterType",
+                    payload: element.target.value,
+                  });
+                  dispatch({
+                    type: "ChangeUrl",
+                    payload: "Monster",
+                  });
+                }}
+              >
+                <option value=""></option>
+                <option value="type=Normal Monster">Normal Monster</option>
+                <option value="type=Normal Tuner Monster">
+                  Normal Tuner Monster
+                </option>
+                <option value="type=Effect Monster">Effect Monster</option>
+                <option value="type=Tuner Monster">Tuner</option>
 
-              <option value="type=Flip Effect Monster">
-                Flip Effect Monster
-              </option>
+                <option value="type=Flip Effect Monster">
+                  Flip Effect Monster
+                </option>
 
-              <option value="type=Spirit Monster">Spirit Monster</option>
-              <option value="type=Union Effect Monster">
-                Union Effect Monster
-              </option>
-              <option value="type=Gemini Monster">Gemini Monster</option>
-              <option value="type=Pendulum Effect Monster">
-                Pendulum Effect Monste
-              </option>
-              <option value="type=Pendulum Normal Monster">
-                Pendulum Normal Monster
-              </option>
-              <option value="type=Pendulum Tuner Effect Monster">
-                Pendulum Tuner Effect Monster
-              </option>
-              <option value="type=Pendulum Flip Effect Monster">
-                Pendulum Flip Effect Monster
-              </option>
+                <option value="type=Spirit Monster">Spirit Monster</option>
+                <option value="type=Union Effect Monster">
+                  Union Effect Monster
+                </option>
+                <option value="type=Gemini Monster">Gemini Monster</option>
+                <option value="type=Pendulum Effect Monster">
+                  Pendulum Effect Monster
+                </option>
+                <option value="type=Pendulum Normal Monster">
+                  Pendulum Normal Monster
+                </option>
+                <option value="type=Pendulum Tuner Effect Monster">
+                  Pendulum Tuner Effect Monster
+                </option>
+                <option value="type=Pendulum Flip Effect Monster">
+                  Pendulum Flip Effect Monster
+                </option>
 
-              <option value="type=XYZ Monster">XYZ Monster</option>
-              <option value="type=XYZ Pendulum Effect Monster">
-                XYZ Pendulum Effect Monster
-              </option>
+                <option value="type=XYZ Monster">XYZ Monster</option>
+                <option value="type=XYZ Pendulum Effect Monster">
+                  XYZ Pendulum Effect Monster
+                </option>
 
-              <option value="type=Fusion Monster">Fusion Monster</option>
-              <option value="type=Pendulum Effect Fusion Monster">
-                Pendulum Effect Fusion Monster
-              </option>
-              <option value="type=Synchro Monster">Synchro Monster</option>
-              <option value="type=Synchro Tuner Monster">
-                Synchro Tuner Monster
-              </option>
-              <option value="type=Synchro Pendulum Effect Monster">
-                Synchro Pendulum Effect Monster
-              </option>
-              <option value="type=Ritual Monster">Ritual Monster</option>
-              <option value="type=Ritual Effect Monster">
-                Ritual Effect Monster
-              </option>
-              <option value="type=Link Monster">Link Monster</option>
-            </select>
+                <option value="type=Fusion Monster">Fusion Monster</option>
+                <option value="type=Pendulum Effect Fusion Monster">
+                  Pendulum Effect Fusion Monster
+                </option>
+                <option value="type=Synchro Monster">Synchro Monster</option>
+                <option value="type=Synchro Tuner Monster">
+                  Synchro Tuner Monster
+                </option>
+                <option value="type=Synchro Pendulum Effect Monster">
+                  Synchro Pendulum Effect Monster
+                </option>
+                <option value="type=Ritual Monster">Ritual Monster</option>
+                <option value="type=Ritual Effect Monster">
+                  Ritual Effect Monster
+                </option>
+                <option value="type=Link Monster">Link Monster</option>
+              </select>
+              <div class="monsterAtkDiv">
+                <select
+                  placeholder="Atk Value"
+                  id="searchbar-spell-type"
+                  onChange={(element) => {
+                    console.log(element.target.value);
+                    dispatch({
+                      type: "SetMonsterAtkreq",
+                      payload: element.target.value,
+                    });
+                    dispatch({
+                      type: "ChangeUrl",
+                      payload: "Monster",
+                    });
+                  }}
+                >
+                  <option value=""></option>
+                  <option value="atk=gt">Greater</option>
+                  <option value="atk=lt">Less than</option>
+                  <option value="atk=gte">Greater or equal</option>
+                  <option value="atk=lte">Less than or equal</option>
+                </select>
+                <input
+                  placeholder="Atk Value"
+                  onChange={(element) => {
+                    dispatch({
+                      type: "SetMonsterAtk",
+                      payload: element.target.value,
+                    });
+                    dispatch({
+                      type: "ChangeUrl",
+                      payload: "Monster",
+                    });
+                  }}
+                ></input>
+              </div>
+              <div class="monsterDefDiv">
+                <select
+                  placeholder="Atk Value"
+                  id="searchbar-spell-type"
+                  onChange={(element) => {
+                    console.log(element.target.value);
+                    dispatch({
+                      type: "SetMonsterDefreq",
+                      payload: element.target.value,
+                    });
+                    dispatch({
+                      type: "ChangeUrl",
+                      payload: "Monster",
+                    });
+                  }}
+                >
+                  <option value=""></option>
+                  <option value="&def=gt">Greater</option>
+                  <option value="&def=lt">Less than</option>
+                  <option value="&def=gte">Greater or equal</option>
+                  <option value="&def=lte">Less than or equal</option>
+                </select>
+                <input
+                  placeholder="Def Value"
+                  onChange={(element) => {
+                    dispatch({
+                      type: "SetMonsterDef",
+                      payload: element.target.value,
+                    });
+                    dispatch({
+                      type: "ChangeUrl",
+                      payload: "Monster",
+                    });
+                  }}
+                ></input>
+              </div>
+
+              <div class="attributeDiv">
+                <label>Attribute</label>
+                <select
+                  placeholder="Attribute"
+                  onChange={(element) => {
+                    console.log(element.target.value);
+                    dispatch({
+                      type: "SetMonsterAttribute",
+                      payload: element.target.value,
+                    });
+                    dispatch({
+                      type: "ChangeUrl",
+                      payload: "Monster",
+                    });
+                  }}
+                >
+                  <option value=""></option>
+                  <option value="&attribute=light">light</option>
+                  <option value="&attribute=dark">dark</option>
+                  <option value="&attribute=earth">earth</option>
+                  <option value="&attribute=fire">fire</option>
+                  <option value="&attribute=water">water</option>
+                  <option value="&attribute=wind">wind</option>
+                  <option value="&attribute=divine">divine</option>
+                </select>
+              </div>
+            </div>
           ) : null}
 
           {state.searchType === "Spell" ? (
@@ -251,7 +393,7 @@ function Searchbar() {
               <option value="race=continuous">Continuous</option>
               <option value="race=quick-play">Quick-Play</option>
               <option value="race=ritual">Ritual</option>
-              <option value="type=field">Field</option>
+              <option value="race=field">Field</option>
             </select>
           ) : null}
 
