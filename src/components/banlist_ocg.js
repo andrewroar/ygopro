@@ -1,0 +1,114 @@
+import React, { useReducer, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  useParams,
+  useHistory,
+} from "react-router-dom";
+import Index from "./index";
+
+import axios from "axios";
+
+function Banlist_ocg() {
+  //////////////////////////////////////////
+  const initialState = {
+    loading: true,
+    searched: false,
+    cardData: [],
+    url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?banlist=ocg",
+    error: null,
+  };
+
+  const reducer = (state, action) => {
+    if (action.type === "getinitialData") {
+      return { ...state, cardData: action.payload.data, loading: false };
+    } else if (action.type === "changeSearchState") {
+      return { ...state, searched: true };
+    } else if (action.type === "CatchError") {
+      return { ...state, error: action.payload };
+    } else {
+      return state;
+    }
+  };
+
+  const searchAPI = async () => {
+    try {
+      let { data } = await axios.get(state.url);
+
+      dispatch({ type: "getinitialData", payload: data });
+    } catch (err) {
+      dispatch({ type: "CatchError", payload: "error" });
+    }
+  };
+
+  useEffect(() => {
+    searchAPI();
+  }, []);
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+  var order = [
+    "Normal Monster",
+    "Effect Monster",
+    "Fusion Monster",
+    "Synchro Monster",
+    "Link Monster",
+    "Spell",
+    "Trap",
+  ];
+
+  return (
+    <div class="flex">
+      <div className="main-list">
+        <h1 className="Banline">Banned</h1>
+        {state.cardData
+          .filter((element) => {
+            return element.banlist_info.ban_ocg === "Banned";
+          })
+          .map((item) => {
+            return (
+              <Index
+                name={item.name}
+                id={item.id}
+                image={item.card_images[0].image_url_small}
+              />
+            );
+          })}
+      </div>
+
+      <div className="main-list">
+        <h1 className="Banline-2">Limited</h1>
+        {state.cardData
+          .filter((element) => {
+            return element.banlist_info.ban_ocg === "Limited";
+          })
+          .map((item) => {
+            return (
+              <Index
+                name={item.name}
+                id={item.id}
+                image={item.card_images[0].image_url_small}
+              />
+            );
+          })}
+      </div>
+
+      <div className="main-list">
+        <h1 className="Banline-3">Semi-Limited</h1>
+        {state.cardData
+          .filter((element) => {
+            return element.banlist_info.ban_ocg === "Semi-Limited";
+          })
+          .map((item) => {
+            return (
+              <Index
+                name={item.name}
+                id={item.id}
+                image={item.card_images[0].image_url_small}
+              />
+            );
+          })}
+      </div>
+    </div>
+  );
+}
+
+export default Banlist_ocg;

@@ -9,6 +9,7 @@ import Searchbar from "./components/searchbar";
 
 import Customcards from "./components/customcards";
 import BanlistTCG from "./components/banlist_tcg";
+import BanlistOCG from "./components/banlist_ocg";
 import AppModal from "./components/appmodal";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <Router>
         <nav className="navbar box-shadow">
           <Link
-            to="/ygopro"
+            to="/"
             style={{ textDecoration: "none" }}
             className="navbar-component"
           >
@@ -43,11 +44,19 @@ function App() {
           >
             <p>Banlist (TCG)</p>
           </Link>
+
+          <Link
+            to="/banlistocg"
+            style={{ textDecoration: "none" }}
+            className="navbar-component"
+          >
+            <p>Banlist (OCG)</p>
+          </Link>
         </nav>
 
         <div>
           <Switch>
-            <Route exact path="/ygopro/">
+            <Route exact path="/">
               <Searchbar />
             </Route>
 
@@ -56,6 +65,9 @@ function App() {
             </Route>
             <Route exact path="/banlisttcg">
               <BanlistTCG />
+            </Route>
+            <Route exact path="/banlistocg">
+              <BanlistOCG />
             </Route>
             <Route exact path="/modal">
               <AppModal />

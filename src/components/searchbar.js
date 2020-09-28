@@ -6,6 +6,7 @@ import axios from "axios";
 function Searchbar() {
   const reducer = (state, action) => {
     if (action.type === "getinitialData") {
+      console.log(action.payload.data);
       return { ...state, cardData: action.payload.data, loading: false };
     } else if (action.type === "changeSearchState") {
       return { ...state, searched: true };
@@ -21,7 +22,10 @@ function Searchbar() {
           state.monsteratk +
           state.monsterdefreq +
           state.monsterdef +
-          state.monsterattribute;
+          state.monsterattribute +
+          state.monstertype +
+          state.monsterscale +
+          state.monsterlink;
         return { ...state, url: monsterurl };
       } else if (action.payload === "Spell") {
         return {
@@ -60,6 +64,8 @@ function Searchbar() {
       return {
         ...state,
         searchMonsterType: action.payload,
+        monsterscale: "",
+        monsterlink: "",
       };
     } else if (action.type === "SearchBarSpellType") {
       return { ...state, searchSpellType: action.payload };
@@ -112,6 +118,12 @@ function Searchbar() {
       return { ...state, monsterdefreq: action.payload };
     } else if (action.type === "SetMonsterAttribute") {
       return { ...state, monsterattribute: action.payload };
+    } else if (action.type === "SetMonsterType") {
+      return { ...state, monstertype: action.payload };
+    } else if (action.type === "SetMonsterScale") {
+      return { ...state, monsterscale: action.payload };
+    } else if (action.type === "SetMonsterLink") {
+      return { ...state, monsterlink: action.payload };
     } else if (action.type === "HardReset") {
       return state;
     } else {
@@ -138,6 +150,9 @@ function Searchbar() {
     monsterdef: "",
     monsterdefreq: "",
     monsterattribute: "",
+    monstertype: "",
+    monsterscale: "",
+    monsterlink: "",
   };
 
   const searchAPI = async () => {
@@ -147,7 +162,8 @@ function Searchbar() {
 
       dispatch({ type: "getinitialData", payload: data });
     } catch (err) {
-      dispatch({ type: "CatchError", payload: "error" });
+      //dispatch({ type: "CatchError", payload: "error" });
+      dispatch({ type: "getinitialData", payload: { data: [] } });
     }
   };
 
@@ -370,6 +386,86 @@ function Searchbar() {
                   <option value="&attribute=wind">wind</option>
                   <option value="&attribute=divine">divine</option>
                 </select>
+              </div>
+
+              <div class="TypeDiv">
+                <label>Type</label>
+                <select
+                  placeholder="Type"
+                  onChange={(element) => {
+                    console.log(element.target.value);
+                    dispatch({
+                      type: "SetMonsterType",
+                      payload: element.target.value,
+                    });
+                    dispatch({
+                      type: "ChangeUrl",
+                      payload: "Monster",
+                    });
+                  }}
+                >
+                  <option value=""></option>
+                  <option value="&race=zombie">zombie</option>
+                  <option value="&race=fiend">fiend</option>
+                  <option value="&race=cyverse">cyverse</option>
+                  <option value="&race=rock">rock</option>
+                  <option value="&race=warrior">warrior</option>
+                  <option value="&race=winged beast">winged beast</option>
+                  <option value="&race=spellcaster">spellcaster</option>
+                  <option value="&race=beast">beast</option>
+                  <option value="&race=fairy">fairy</option>
+                  <option value="&race=fish">fish</option>
+                  <option value="&race=beast-warrior">beast-warrior</option>
+                  <option value="&race=thunder">thunder</option>
+                  <option value="&race=machine">machine</option>
+                  <option value="&race=sea serpent">sea serpent</option>
+                  <option value="&race=aqua">aqua</option>
+                  <option value="&race=plant">plant</option>
+                  <option value="&race=dragon">dragon</option>
+                  <option value="&race=reptile">reptile</option>
+                  <option value="&race=psychic">psychic</option>
+                  <option value="&race=insect">insect</option>
+                  <option value="&race=pyro">pyro</option>
+                  <option value="&race=dinosaur">dinosaur</option>
+                  <option value="&race=wyrm">wyrm</option>
+                  <option value="&race=cyberse">cyberse</option>
+                  <option value="&race=divine-beast">divine-beast</option>
+                  <option value="&race=creator-god">creator-god</option>
+                </select>
+
+                <div class="monsterscale">
+                  {state.searchMonsterType.indexOf("Pendulum") !== -1 ? (
+                    <input
+                      placeholder="Scale"
+                      onChange={(element) => {
+                        dispatch({
+                          type: "SetMonsterScale",
+                          payload: "&scale=" + element.target.value,
+                        });
+                        dispatch({
+                          type: "ChangeUrl",
+                          payload: "Monster",
+                        });
+                      }}
+                    ></input>
+                  ) : null}
+
+                  {state.searchMonsterType.indexOf("Link") !== -1 ? (
+                    <input
+                      placeholder="Link Arrow"
+                      onChange={(element) => {
+                        dispatch({
+                          type: "SetMonsterLink",
+                          payload: "&link=" + element.target.value,
+                        });
+                        dispatch({
+                          type: "ChangeUrl",
+                          payload: "Monster",
+                        });
+                      }}
+                    ></input>
+                  ) : null}
+                </div>
               </div>
             </div>
           ) : null}
