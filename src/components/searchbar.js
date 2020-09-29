@@ -25,7 +25,8 @@ function Searchbar() {
           state.monsterattribute +
           state.monstertype +
           state.monsterscale +
-          state.monsterlink;
+          state.monsterlink +
+          state.monsterlevel;
         return { ...state, url: monsterurl };
       } else if (action.payload === "Spell") {
         return {
@@ -124,6 +125,8 @@ function Searchbar() {
       return { ...state, monsterscale: action.payload };
     } else if (action.type === "SetMonsterLink") {
       return { ...state, monsterlink: action.payload };
+    } else if (action.type === "SetMonsterLevel") {
+      return { ...state, monsterlevel: action.payload };
     } else if (action.type === "HardReset") {
       return state;
     } else {
@@ -153,6 +156,7 @@ function Searchbar() {
     monstertype: "",
     monsterscale: "",
     monsterlink: "",
+    monsterlevel: "",
   };
 
   const searchAPI = async () => {
@@ -288,6 +292,21 @@ function Searchbar() {
                 </option>
                 <option value="type=Link Monster">Link Monster</option>
               </select>
+              <div class="monsterLevel">
+                <input
+                  placeholder="Level/Rank"
+                  onChange={(element) => {
+                    dispatch({
+                      type: "SetMonsterLevel",
+                      payload: "&level=" + element.target.value,
+                    });
+                    dispatch({
+                      type: "ChangeUrl",
+                      payload: "Monster",
+                    });
+                  }}
+                ></input>
+              </div>
               <div class="monsterAtkDiv">
                 <select
                   placeholder="Atk Value"

@@ -10,7 +10,6 @@ import Searchbar from "./components/searchbar";
 import Customcards from "./components/customcards";
 import BanlistTCG from "./components/banlist_tcg";
 import BanlistOCG from "./components/banlist_ocg";
-import AppModal from "./components/appmodal";
 
 function App() {
   return (
@@ -68,9 +67,6 @@ function App() {
             </Route>
             <Route exact path="/banlistocg">
               <BanlistOCG />
-            </Route>
-            <Route exact path="/modal">
-              <AppModal />
             </Route>
 
             <Route exact path="/card/:id">
