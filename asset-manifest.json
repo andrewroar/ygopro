@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ygopro/static/css/main.cbc3ec17.chunk.css",
-    "main.js": "/ygopro/static/js/main.051943d5.chunk.js",
-    "main.js.map": "/ygopro/static/js/main.051943d5.chunk.js.map",
+    "main.js": "/ygopro/static/js/main.5c3c1459.chunk.js",
+    "main.js.map": "/ygopro/static/js/main.5c3c1459.chunk.js.map",
     "runtime-main.js": "/ygopro/static/js/runtime-main.766ed7fb.js",
     "runtime-main.js.map": "/ygopro/static/js/runtime-main.766ed7fb.js.map",
     "static/css/2.cd846464.chunk.css": "/ygopro/static/css/2.cd846464.chunk.css",
     "static/js/2.c5db9773.chunk.js": "/ygopro/static/js/2.c5db9773.chunk.js",
     "static/js/2.c5db9773.chunk.js.map": "/ygopro/static/js/2.c5db9773.chunk.js.map",
     "index.html": "/ygopro/index.html",
-    "precache-manifest.b7165773e725ed3895045e001d8c22ea.js": "/ygopro/precache-manifest.b7165773e725ed3895045e001d8c22ea.js",
+    "precache-manifest.db8c344cd8298ecab5827826a493195a.js": "/ygopro/precache-manifest.db8c344cd8298ecab5827826a493195a.js",
     "service-worker.js": "/ygopro/service-worker.js",
     "static/css/2.cd846464.chunk.css.map": "/ygopro/static/css/2.cd846464.chunk.css.map",
     "static/css/main.cbc3ec17.chunk.css.map": "/ygopro/static/css/main.cbc3ec17.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.cd846464.chunk.css",
     "static/js/2.c5db9773.chunk.js",
     "static/css/main.cbc3ec17.chunk.css",
-    "static/js/main.051943d5.chunk.js"
+    "static/js/main.5c3c1459.chunk.js"
   ]
 }
