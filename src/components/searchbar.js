@@ -26,7 +26,8 @@ function Searchbar() {
           state.monstertype +
           state.monsterscale +
           state.monsterlink +
-          state.monsterlevel;
+          state.monsterlevel +
+          state.monstersort;
         return { ...state, url: monsterurl };
       } else if (action.payload === "Spell") {
         return {
@@ -127,6 +128,8 @@ function Searchbar() {
       return { ...state, monsterlink: action.payload };
     } else if (action.type === "SetMonsterLevel") {
       return { ...state, monsterlevel: action.payload };
+    } else if (action.type === "SetMonsterSort") {
+      return { ...state, monstersort: action.payload };
     } else if (action.type === "HardReset") {
       return state;
     } else {
@@ -157,6 +160,7 @@ function Searchbar() {
     monsterscale: "",
     monsterlink: "",
     monsterlevel: "",
+    monstersort: "",
   };
 
   const searchAPI = async () => {
@@ -454,36 +458,67 @@ function Searchbar() {
 
                 <div class="monsterscale">
                   {state.searchMonsterType.indexOf("Pendulum") !== -1 ? (
-                    <input
-                      placeholder="Scale"
-                      onChange={(element) => {
-                        dispatch({
-                          type: "SetMonsterScale",
-                          payload: "&scale=" + element.target.value,
-                        });
-                        dispatch({
-                          type: "ChangeUrl",
-                          payload: "Monster",
-                        });
-                      }}
-                    ></input>
+                    <div>
+                      <lable>Pendulum Scale:</lable>
+                      <input
+                        placeholder="Scale"
+                        onChange={(element) => {
+                          dispatch({
+                            type: "SetMonsterScale",
+                            payload: "&scale=" + element.target.value,
+                          });
+                          dispatch({
+                            type: "ChangeUrl",
+                            payload: "Monster",
+                          });
+                        }}
+                      ></input>
+                    </div>
                   ) : null}
 
                   {state.searchMonsterType.indexOf("Link") !== -1 ? (
-                    <input
-                      placeholder="Link Arrow"
-                      onChange={(element) => {
-                        dispatch({
-                          type: "SetMonsterLink",
-                          payload: "&link=" + element.target.value,
-                        });
-                        dispatch({
-                          type: "ChangeUrl",
-                          payload: "Monster",
-                        });
-                      }}
-                    ></input>
+                    <div>
+                      <lable>Link:</lable>
+                      <input
+                        placeholder="Link Arrow"
+                        onChange={(element) => {
+                          dispatch({
+                            type: "SetMonsterLink",
+                            payload: "&link=" + element.target.value,
+                          });
+                          dispatch({
+                            type: "ChangeUrl",
+                            payload: "Monster",
+                          });
+                        }}
+                      ></input>
+                    </div>
                   ) : null}
+                </div>
+
+                <div class="sorting">
+                  <lable>Sorted By:</lable>
+                  <select
+                    className="search-component"
+                    id="searchbar-type"
+                    onChange={(element) => {
+                      dispatch({
+                        type: "SetMonsterSort",
+                        payload: "&sort=" + element.target.value,
+                      });
+                      dispatch({
+                        type: "ChangeUrl",
+                        payload: "Monster",
+                      });
+                    }}
+                  >
+                    <option value=""></option>
+                    <option value="atk">Attack</option>
+                    <option value="def">Defend</option>
+                    <option value="name">Name</option>
+                    <option value="level">Level</option>
+                    <option value="new">Released date</option>
+                  </select>
                 </div>
               </div>
             </div>
