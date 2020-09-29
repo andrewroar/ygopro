@@ -32,14 +32,14 @@ function Searchbar() {
         return {
           ...state,
           url:
-            "https://db.ygoprodeck.com/api/v7/cardinfo.php?" +
+            "https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Spell Card&" +
             state.searchSpellType,
         };
       } else if (action.payload === "Trap") {
         return {
           ...state,
           url:
-            "https://db.ygoprodeck.com/api/v7/cardinfo.php?" +
+            "https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Trap Card&" +
             state.searchSpellType,
         };
       } else {
@@ -522,7 +522,7 @@ function Searchbar() {
                 });
                 dispatch({
                   type: "ChangeUrl",
-                  payload: "Spell",
+                  payload: "Trap",
                 });
               }}
             >
