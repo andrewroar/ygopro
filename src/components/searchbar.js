@@ -189,7 +189,7 @@ function Searchbar() {
           className="search-form "
           name="formname"
           onSubmit={(e) => {
-            console.log(e);
+            e.preventDefault();
           }}
         >
           <input
