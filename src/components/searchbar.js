@@ -169,8 +169,9 @@ function Searchbar() {
       let { data } = await axios.get(state.url);
 
       dispatch({ type: "getinitialData", payload: data });
+      dispatch({ type: "CatchError", payload: null });
     } catch (err) {
-      //dispatch({ type: "CatchError", payload: "error" });
+      dispatch({ type: "CatchError", payload: "error" });
       dispatch({ type: "getinitialData", payload: { data: [] } });
     }
   };
@@ -188,7 +189,7 @@ function Searchbar() {
           className="search-form "
           name="formname"
           onSubmit={(e) => {
-            e.preventDefault();
+            console.log(e);
           }}
         >
           <input
@@ -209,6 +210,24 @@ function Searchbar() {
               }
             }}
           />
+          <button
+            onClick={() => {
+              const searchbarinput = document.getElementsByClassName(
+                "SearchInput"
+              )[0].value;
+
+              searchAPI().then(() => {
+                dispatch({
+                  type: "SearchBarChanges",
+                  payload: searchbarinput,
+                });
+
+                dispatch({ type: "changeSearchState", payload: true });
+              });
+            }}
+          >
+            Submit
+          </button>
           <select
             className="search-component"
             id="searchbar-type"
