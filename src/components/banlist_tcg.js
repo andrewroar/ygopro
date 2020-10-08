@@ -58,7 +58,9 @@ function Banlist_tcg() {
   return (
     <div class="flex">
       <div className="main-list">
-        <h1 className="Banline">Banned</h1>
+        <div className="Banline">
+          <h1>Banned</h1>
+        </div>
         {state.cardData
           .filter((element) => {
             return element.banlist_info.ban_tcg === "Banned";
@@ -75,7 +77,9 @@ function Banlist_tcg() {
       </div>
 
       <div className="main-list">
-        <h1 className="Banline-2">Limited</h1>
+        <div className="Banline-2">
+          <h1>Limited</h1>
+        </div>
         {state.cardData
           .filter((element) => {
             return element.banlist_info.ban_tcg === "Limited";
@@ -92,7 +96,9 @@ function Banlist_tcg() {
       </div>
 
       <div className="main-list">
-        <h1 className="Banline-3">Semi-Limited</h1>
+        <div className="Banline-3">
+          <h1>Semi-Limited</h1>
+        </div>
         {state.cardData
           .filter((element) => {
             return element.banlist_info.ban_tcg === "Semi-Limited";

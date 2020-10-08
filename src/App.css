@@ -170,18 +170,26 @@ header {
 
 .back-button {
   margin: 10px 0px 10px 0px;
+  text-align: center;
 }
 
 .card-text {
+  margin-top: 20px;
   margin-left: 20px;
   border-radius: 15px;
   border: 10px solid #363944;
   padding: 20px;
   background-color: #f5deb3;
+  width: auto;
 }
 
 .card-flex-box {
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-bottom: 20px;
+  width: 97%;
 
   flex-direction: row;
 }
@@ -209,6 +217,7 @@ header {
 
 .Banline {
   width: 97%;
+
   border-radius: 15px;
   border: 10px solid #363944;
   padding: 20px;
@@ -254,12 +263,16 @@ header {
   header {
     height: 150px;
   }
+
+  .card-text {
+    width: 90%;
+  }
 }
 
 @media only screen and (max-width: 1126px) {
   .main-box {
     flex: 100%;
-    width: 85%;
+    width: 97%;
   }
   .form-div {
     width: auto;
@@ -283,10 +296,6 @@ header {
     text-align: center;
   }
 
-  .card-text {
-    margin-top: 20px;
-  }
-
   .release-set-list {
     text-align: center;
     margin-top: 20px;
@@ -299,6 +308,7 @@ header {
 @media only screen and (max-width: 1600px) {
   .main-box {
     margin: 20px 10px 0 20px;
+    width: 97%;
   }
   .custom-card-box {
     margin: 20px 10px 0 20px;
