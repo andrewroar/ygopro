@@ -69,7 +69,7 @@ The search bar and form used pink to refer to the trap card
 
 -Increase filters
 
--Add function to prevent DDOS because you guys are a group of c\*\*\*s
+-Add function to prevent DDOS 
 
 -Adding censorship to custom card to censor words like sh\*t and f\*ck
 from card name and description
