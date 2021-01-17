@@ -9,9 +9,8 @@ function Home(props) {
       <div>
         <img
           src={props.image}
-          class="card-img"
+          class="searchpage-card-img"
           alt={props.name + " icon"}
-          style={{ margin: "20px" }}
         ></img>
       </div>
       <div>

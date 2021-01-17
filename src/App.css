@@ -160,6 +160,12 @@ header {
   word-break: break-word;
 }
 
+.searchpage-card-img {
+  margin: 20px;
+  width: 150px;
+  height: 250px;
+}
+
 /*==Card css==*/
 
 .flex-column {
@@ -266,6 +272,12 @@ header {
 
   .card-text {
     width: 90%;
+  }
+
+  .searchpage-card-img {
+    margin: 20px;
+    width: 100px;
+    height: 200px;
   }
 }
 
