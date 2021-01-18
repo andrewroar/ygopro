@@ -11,6 +11,7 @@ function Home(props) {
           src={props.image}
           alt={props.name + " icon"}
           class="searchpage-card-img"
+          style={{ margin: "20px", width: "100px", height: "200px" }}
         ></img>
       </div>
       <div>
