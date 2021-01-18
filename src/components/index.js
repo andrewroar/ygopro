@@ -9,8 +9,8 @@ function Home(props) {
       <div>
         <img
           src={props.image}
-          class="searchpage-card-img"
           alt={props.name + " icon"}
+          class="searchpage-card-img"
         ></img>
       </div>
       <div>
