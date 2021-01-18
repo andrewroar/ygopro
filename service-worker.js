@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ygopro/precache-manifest.bc29e2c2c5b9130d47afe6db5fd66a1e.js"
+  "/ygopro/precache-manifest.21026c8b2087dd71ed7ba91043803ff9.js"
 );
 
 self.addEventListener('message', (event) => {
